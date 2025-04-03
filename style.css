@@ -40,6 +40,9 @@ body, html {
     pointer-events: none;
     z-index: 9999;
 }
+#subscriptions{
+    text-align: center;
+}
 
 /* Header styles */
 header {
