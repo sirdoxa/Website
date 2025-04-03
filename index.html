@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiPurge</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Custom cursor -->
+    <div id="cursor"></div>
+
+    <!-- Canvas for Matrix Rain Effect -->
+    <canvas id="matrixCanvas"></canvas>
+
+    <!-- Main content of the site -->
+    <div id="content">
+        <header>
+            <h1 class="glitch" data-text="Mahdi Nabavi">Mahdi Nabavi</h1>
+            <p>Erasing You Since Yesterday</p>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#subscriptions">Subscriptions</a>
+                <a href="https://sohrabzia.github.io/" target="_blank">Contact</a>
+            </nav>
+        </header>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Welcome to DigiPurge, where we specialize in erasing your digital footprint faster than you can say
+                "Oops, I shouldn't have posted that." Our crack team of cyber-ninjas will hunt down every embarrassing
+                selfie, ill-advised tweet, and regrettable status update you've ever made.</p>
+        </section>
+
+        <section id="subscriptions">
+            <h2>Subscription Plans</h2>
+            <table class="subscription-table">
+                <tr>
+                    <th>Plan</th>
+                    <th>Price</th>
+                    <th>Features</th>
+                </tr>
+                <tr>
+                    <td>Digital Ghost</td>
+                    <td>$999/month</td>
+                    <td>Basic data removal, social media scrubbing, and a complimentary tin foil hat</td>
+                </tr>
+                <tr>
+                    <td>Cyber Phantom</td>
+                    <td>$9,999/month</td>
+                    <td>Advanced data removal, identity cloaking, and a personal cyber-bodyguard</td>
+                </tr>
+                <tr>
+                    <td>Quantum Vanish</td>
+                    <td>Your first-born child</td>
+                    <td>Complete digital erasure, time travel to undo your mistakes, and a new identity in a parallel
+                        universe</td>
+                </tr>
+            </table>
+        </section>
+
+        <footer id="contact">
+            <p>Contact us at: weknoweverything@digipurge.com</p>
+            <p>Disclaimer: We're probably selling your data right now. But hey, that's showbiz, baby!</p>
+        </footer>
+    </div>
+    <script>
+
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Three.js animation
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('canvas'), alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        // Create particles
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 5000;
+        const posArray = new Float32Array(particlesCount * 3);
+
+        for (let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 5;
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.005,
+            color: 0x00ff00,
+            transparent: true,
+            opacity: 0.8,
+        });
+
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
+
+        camera.position.z = 2;
+
+        // Animation
+        function animate() {
+            requestAnimationFrame(animate);
+            particlesMesh.rotation.x += 0.0005;
+            particlesMesh.rotation.y += 0.0005;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Responsive design
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Interactive elements
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('mouseover', () => {
+                link.style.color = '#ff00ff';
+            });
+            link.addEventListener('mouseout', () => {
+                link.style.color = '#00ff00';
+            });
+        });
+
+
+
+    </script>
+    <script src="script.js"></script>
+    <script>let name=["⁮⁮","⁮⁮","⁮⁮","⁮⁮","M","⁮⁮","⁮⁮","⁮⁮","a","⁮⁮","h","⁮⁮","d","⁮⁮","I","⁮⁮","⁮⁮","⁮⁮","⁮⁮","⁮⁮ ⁮⁮","⁮⁮","N","⁮⁮","a","⁮⁮","b","⁮⁮","⁮⁮","⁮⁮","⁮⁮","a","⁮⁮","v","⁮⁮","i","⁮⁮","⁮⁮","⁮⁮","⁮⁮"],under="⁮⁮",count=0,count2=0,full=["_"];setInterval((()=>{full.length--,full.push(name[count]),count2%2?full.push("_"):full.push(""),document.title=full.join(""),count==name.length&&(count=0,full=["_"]),count2==name.length&&(count2=0),count++,count2++}),250)</script>
+</body>
+
+</html>
