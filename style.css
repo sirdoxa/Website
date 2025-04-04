@@ -30,8 +30,10 @@ body, html {
     margin: auto;
 }
 
-/* Custom cursor */
 
+#subscriptions{
+    text-align: center;
+}
 
 /* Header styles */
 header {
