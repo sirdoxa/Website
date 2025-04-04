@@ -89,12 +89,7 @@ function animate() {
 
 animate();
 
-// Advanced interactivity: change fadeFactor on mouse move to reveal more or less trails
-function handleMouseMove(e) {
-  // Map mouse X to fade factor between 0.01 (long trails) and 0.15 (short trails)
-  const relativeX = e.clientX / config.canvasWidth;
-  config.fadeFactor = 0.15 - relativeX * 0.14;
-}
+
 
 // Advanced interactivity: change font size with mouse wheel (with limits)
 function handleWheel(e) {

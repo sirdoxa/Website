@@ -31,18 +31,7 @@ body, html {
 }
 
 /* Custom cursor */
-#cursor {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #00ff00;
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-}
-#subscriptions{
-    text-align: center;
-}
+
 
 /* Header styles */
 header {
@@ -135,4 +124,9 @@ section {
 @keyframes glitch-anim-2 {
     0% { clip: rect(59px, 9999px, 89px, 0); }
     100% { clip: rect(20px, 9999px, 35px, 0); }
+}
+
+
+body {
+    cursor: url('cursor-green.cur'), auto;
 }
